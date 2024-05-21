@@ -1,9 +1,13 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import static javax.swing.JOptionPane.showInputDialog;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         User username = new User(showInputDialog("Bitte geben Sie Ihren Username ein: "),
                 showInputDialog("Bitte geben Sie Ihre Emailadresse ein:"),
@@ -12,5 +16,7 @@ public class Main {
         System.out.println("Benutzename: " + username.username +
                 "\nEmail: " +username.email +
                 "\nPassswort: " + username.password);
+        Connection con = DriverManager.pgetConnection("jdbc:mysql://localhost:3306/userdb", "root", "rootpassword");
     }
+
 }
