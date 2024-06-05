@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import static javax.swing.JOptionPane.showInputDialog;
@@ -16,7 +17,6 @@ public class Main {
         System.out.println("Benutzename: " + username.username +
                 "\nEmail: " +username.email +
                 "\nPassswort: " + username.password);
-        Connection con = DriverManager.pgetConnection("jdbc:mysql://localhost:3306/userdb", "root", "rootpassword");
     }
 
 }
